@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Order Print</title>
-    <link rel="stylesheet" href="{{asset('public/frontEnd/css/bootstrap.min.css')}}" />
-    <link rel="stylesheet" href="{{asset('public/frontEnd/css/all.min.css')}}" />
+    <link rel="stylesheet" href="{{asset('frontEnd/css/bootstrap.min.css')}}" />
+    <link rel="stylesheet" href="{{asset('frontEnd/css/all.min.css')}}" />
 </head>
 <body>
     <style>
@@ -27,7 +27,7 @@
     td{
         font-size: 16px;
     }
-   @page { 
+   @page {
     margin:0px;
     }
    @media print {
@@ -115,7 +115,7 @@
                         </tbody>
                     </table>
                     <div class="invoice-bottom">
-                        
+
                         <table class="table" style="width: 300px; float: right;    margin-bottom: 30px;">
                             <tbody style="background:#f1f9f8">
                                 <tr>

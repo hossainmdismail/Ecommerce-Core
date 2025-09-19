@@ -10,13 +10,13 @@
         <link rel="shortcut icon" href="{{asset($generalsetting->favicon)}}">
 
         <!-- Bootstrap css -->
-        <link href="{{asset('public/backEnd/')}}/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="{{asset('backEnd/')}}/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <!-- App css -->
-        <link href="{{asset('public/backEnd/')}}/assets/css/app.min.css" rel="stylesheet" type="text/css" id="app-style"/>
+        <link href="{{asset('backEnd/')}}/assets/css/app.min.css" rel="stylesheet" type="text/css" id="app-style"/>
         <!-- icons -->
-        <link href="{{asset('public/backEnd/')}}/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+        <link href="{{asset('backEnd/')}}/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
         <!-- Head js -->
-        <script src="{{asset('public/backEnd/')}}/assets/js/head.js"></script>
+        <script src="{{asset('backEnd/')}}/assets/js/head.js"></script>
 
     </head>
 
@@ -29,7 +29,7 @@
                         <div class="card bg-pattern">
 
                             <div class="card-body p-4">
-                                
+
                                 <div class="text-center w-75 m-auto">
                                     <div class="auth-logo">
                                         <a href="index.html" class="logo logo-dark text-center">
@@ -37,10 +37,10 @@
                                                 <img src="{{asset($generalsetting->white_logo)}}" alt="" height="22">
                                             </span>
                                         </a>
-                    
+
                                         <a href="" class="logo logo-light text-center">
                                             <span class="logo-lg">
-                                                <img src="{{asset('public/backEnd/')}}/assets/images/logo-light.png" alt="" height="22">
+                                                <img src="{{asset('backEnd/')}}/assets/images/logo-light.png" alt="" height="22">
                                             </span>
                                         </a>
                                     </div>
@@ -101,10 +101,10 @@
         <!-- end page -->
 
         <!-- Vendor js -->
-        <script src="{{asset('public/backEnd/')}}/assets/js/vendor.min.js"></script>
+        <script src="{{asset('backEnd/')}}/assets/js/vendor.min.js"></script>
 
         <!-- App js -->
-        <script src="{{asset('public/backEnd/')}}/assets/js/app.min.js"></script>
-        
+        <script src="{{asset('backEnd/')}}/assets/js/app.min.js"></script>
+
     </body>
 </html>

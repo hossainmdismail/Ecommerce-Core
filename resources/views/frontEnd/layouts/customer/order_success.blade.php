@@ -6,7 +6,7 @@
         <div class="row justify-content-center">
             <div class="col-sm-8">
                 <div class="success-img">
-                    <img src="{{asset('public/frontEnd/images/order-success.png')}}" alt="">
+                    <img src="{{asset('frontEnd/images/order-success.png')}}" alt="">
                 </div>
                 <div class="success-title">
                     <h2>আপনার অর্ডারটি আমাদের কাছে সফলভাবে পৌঁছেছে, কিছুক্ষনের মধ্যে আমাদের একজন প্রতিনিধি আপনার নাম্বারে কল করবেন </h2>
@@ -35,7 +35,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                @php 
+                                @php
                                     $payments = App\Models\Payment::where('order_id',$order->id)->first();
                                 @endphp
                                 <td colspan="4">
@@ -62,7 +62,7 @@
                             <tr>
                                 <td>
                                     <p>{{$value->product_name}} x {{$value->qty}}</p>
-                                    
+
                                 </td>
                                 <td><p><strong>৳ {{$value->sale_price}}</strong></p></td>
                             </tr>
@@ -107,6 +107,6 @@
 </section>
 @endsection
 @push('script')
-<script src="{{asset('public/frontEnd/')}}/js/parsley.min.js"></script>
-<script src="{{asset('public/frontEnd/')}}/js/form-validation.init.js"></script>
+<script src="{{asset('frontEnd/')}}/js/parsley.min.js"></script>
+<script src="{{asset('frontEnd/')}}/js/form-validation.init.js"></script>
 @endpush

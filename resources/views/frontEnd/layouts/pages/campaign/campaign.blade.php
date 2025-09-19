@@ -33,17 +33,17 @@
           fbq('track', 'PageView');
         </script>
         <noscript>
-          <img height="1" width="1" style="display:none" 
+          <img height="1" width="1" style="display:none"
                src="https://www.facebook.com/tr?id={{{$pixel->code}}}&ev=PageView&noscript=1"/>
         </noscript>
         <!-- End Facebook Pixel Code -->
         @endforeach
-        
+
         <meta name="app-url" content="{{route('campaign',$campaign_data->slug)}}" />
         <meta name="robots" content="index, follow" />
         <meta name="description" content="{{$campaign_data->description}}" />
         <meta name="keywords" content="{{ $campaign_data->slug }}" />
-        
+
         <!-- Twitter Card data -->
         <meta name="twitter:card" content="product" />
         <meta name="twitter:site" content="{{$campaign_data->name}}" />
@@ -52,7 +52,7 @@
         <meta name="twitter:creator" content="hellodinajpur.com" />
         <meta property="og:url" content="{{route('campaign',$campaign_data->slug)}}" />
         <meta name="twitter:image" content="{{asset($campaign_data->image_one)}}" />
-        
+
         <!-- Open Graph data -->
         <meta property="og:title" content="{{$campaign_data->name}}" />
         <meta property="og:type" content="product" />
@@ -121,7 +121,7 @@
                                     @endif
                                     <p>{{$campaign_data->name}} এর বর্তমান দাম {{$product->new_price}}/=</p>
                                 </h2>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -180,13 +180,13 @@
                             <div class="campro_img_slider owl-carousel">
                                <div class="campro_img_item">
                                    <img src="{{asset($campaign_data->image_one)}}" alt="">
-                               </div> 
+                               </div>
                                <div class="campro_img_item">
                                    <img src="{{asset($campaign_data->image_one)}}" alt="">
-                               </div> 
+                               </div>
                                <div class="campro_img_item">
                                    <img src="{{asset($campaign_data->image_one)}}" alt="">
-                               </div> 
+                               </div>
                             </div>
                             <div class="col-sm-12">
                                 <div class="ord_btn">
@@ -234,7 +234,7 @@
                                   </div>
                                   <div class="why_choose_widget">
                                       <div class="why_img">
-                                          <img src="{{asset('public/frontEnd/campaign')}}/images/honey.png" alt="">
+                                          <img src="{{asset('frontEnd/campaign')}}/images/honey.png" alt="">
                                       </div>
                                   </div>
                               </div>
@@ -528,7 +528,7 @@
 
         </script>
         <script>
-            $('.review_slider').owlCarousel({   
+            $('.review_slider').owlCarousel({
                 dots: false,
                 arrow: false,
                 autoplay: true,
@@ -557,7 +557,7 @@
         </script>
 
         <script>
-            $('.campro_img_slider').owlCarousel({   
+            $('.campro_img_slider').owlCarousel({
                 dots: false,
                 arrow: false,
                 autoplay: true,

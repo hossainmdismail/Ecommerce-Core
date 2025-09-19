@@ -1,8 +1,8 @@
 @extends('backEnd.layouts.master')
 @section('title', 'Review Create')
 @section('css')
-    <link href="{{ asset('public/backEnd') }}/assets/libs/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('public/backEnd') }}/assets/libs/summernote/summernote-lite.min.css" rel="stylesheet"
+    <link href="{{ asset('backEnd') }}/assets/libs/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('backEnd') }}/assets/libs/summernote/summernote-lite.min.css" rel="stylesheet"
         type="text/css" />
 @endsection
 @section('content')

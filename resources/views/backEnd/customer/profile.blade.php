@@ -1,7 +1,7 @@
 @extends('backEnd.layouts.master')
 @section('title','Customer Profile')
 @section('css')
-<link href="{{asset('public/backEnd')}}/assets/libs/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+<link href="{{asset('backEnd')}}/assets/libs/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
 @endsection
 @section('content')
 <div class="container-fluid">
@@ -13,13 +13,13 @@
                     <a href="{{route('customers.index')}}" class="btn btn-primary rounded-pill">Customer List</a>
                     <form method="post" action="{{route('customers.adminlog')}}" class="d-inline" target="_blank">
                         @csrf
-                    <input type="hidden" value="{{$profile->id}}" name="hidden_id">        
+                    <input type="hidden" value="{{$profile->id}}" name="hidden_id">
                     <button type="button" class="btn btn-info rounded-pill change-confirm" title="Login as customer"><i class="fe-log-in"></i> Login</button></form>
                 </div>
                 <h4 class="page-title">Customer Profile</h4>
             </div>
         </div>
-    </div>  
+    </div>
     <!-- end page title -->
 
     <div class="row">
@@ -49,20 +49,20 @@
                             </tr>
 
                             <tr class="text-muted mb-2 font-13">
-                                <td>Email </td> 
+                                <td>Email </td>
                                 <td class="ms-2">{{$profile->email}}</td>
                             </tr>
 
                             <tr class="text-muted mb-1 font-13">
-                                <td>Address </td> 
+                                <td>Address </td>
                                 <td class="ms-2">{{$profile->address}}</td>
                             </tr>
                             <tr class="text-muted mb-1 font-13">
-                                <td>District </td> 
+                                <td>District </td>
                                 <td class="ms-2">{{$profile->district}}</td>
                             </tr>
                             <tr class="text-muted mb-1 font-13">
-                                <td>Upzlila </td> 
+                                <td>Upzlila </td>
                                 <td class="ms-2">{{$profile->area}}</td>
                             </tr>
                             </tbody>
@@ -77,7 +77,7 @@
             <div class="card">
                 <div class="card-body">
                     <ul class="nav nav-pills nav-fill navtab-bg">
-                        
+
                         <li class="nav-item mt-2">
                             <a href="#order" data-bs-toggle="tab" aria-expanded="false" class="nav-link active">
                                Order
@@ -128,8 +128,8 @@
 
 
 @section('script')
-<script src="{{asset('public/backEnd/')}}/assets/libs/parsleyjs/parsley.min.js"></script>
-<script src="{{asset('public/backEnd/')}}/assets/js/pages/form-validation.init.js"></script>
-<script src="{{asset('public/backEnd/')}}/assets/libs/select2/js/select2.min.js"></script>
-<script src="{{asset('public/backEnd/')}}/assets/js/pages/form-advanced.init.js"></script>
+<script src="{{asset('backEnd/')}}/assets/libs/parsleyjs/parsley.min.js"></script>
+<script src="{{asset('backEnd/')}}/assets/js/pages/form-validation.init.js"></script>
+<script src="{{asset('backEnd/')}}/assets/libs/select2/js/select2.min.js"></script>
+<script src="{{asset('backEnd/')}}/assets/js/pages/form-advanced.init.js"></script>
 @endsection

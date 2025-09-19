@@ -1,12 +1,12 @@
 @extends('backEnd.layouts.master')
 @section('title','Brand Create')
 @section('css')
-<link href="{{asset('public/backEnd')}}/assets/libs/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
-<link href="{{asset('public/backEnd')}}/assets/css/switchery.min.css" rel="stylesheet" type="text/css" />
+<link href="{{asset('backEnd')}}/assets/libs/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+<link href="{{asset('backEnd')}}/assets/css/switchery.min.css" rel="stylesheet" type="text/css" />
 @endsection
 @section('content')
 <div class="container-fluid">
-    
+
     <!-- start page title -->
     <div class="row">
         <div class="col-12">
@@ -17,8 +17,8 @@
                 <h4 class="page-title">Brand Create</h4>
             </div>
         </div>
-    </div>       
-    <!-- end page title --> 
+    </div>
+    <!-- end page title -->
    <div class="row justify-content-center">
     <div class="col-lg-8">
         <div class="card">
@@ -40,7 +40,7 @@
                     <div class="col-sm-12 mb-3">
                         <div class="form-group">
                             <label for="image" class="form-label">Image </label>
-                            <input type="file" class="form-control @error('image') is-invalid @enderror " name="image"  value="{{ old('image') }}"  id="image" 
+                            <input type="file" class="form-control @error('image') is-invalid @enderror " name="image"  value="{{ old('image') }}"  id="image"
                             @error('image')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -79,11 +79,11 @@
 
 
 @section('script')
-<script src="{{asset('public/backEnd/')}}/assets/libs/parsleyjs/parsley.min.js"></script>
-<script src="{{asset('public/backEnd/')}}/assets/js/pages/form-validation.init.js"></script>
-<script src="{{asset('public/backEnd/')}}/assets/libs/select2/js/select2.min.js"></script>
-<script src="{{asset('public/backEnd/')}}/assets/js/pages/form-advanced.init.js"></script>
-<script src="{{asset('public/backEnd/')}}/assets/js/switchery.min.js"></script>
+<script src="{{asset('backEnd/')}}/assets/libs/parsleyjs/parsley.min.js"></script>
+<script src="{{asset('backEnd/')}}/assets/js/pages/form-validation.init.js"></script>
+<script src="{{asset('backEnd/')}}/assets/libs/select2/js/select2.min.js"></script>
+<script src="{{asset('backEnd/')}}/assets/js/pages/form-advanced.init.js"></script>
+<script src="{{asset('backEnd/')}}/assets/js/switchery.min.js"></script>
 <script>
     $(document).ready(function(){
         var elem = document.querySelector('.js-switch');

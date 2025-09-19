@@ -49,7 +49,7 @@
 
         <div class="row justify-content-center">
             <div class="col-sm-12">
-                
+
             </div>
              <div class="col-sm-10">
                 <div class="contact-form">
@@ -131,6 +131,6 @@
 </section>
 @endsection
 @push('script')
-<script src="{{asset('public/frontEnd/')}}/js/parsley.min.js"></script>
-<script src="{{asset('public/frontEnd/')}}/js/form-validation.init.js"></script>
+<script src="{{asset('frontEnd/')}}/js/parsley.min.js"></script>
+<script src="{{asset('frontEnd/')}}/js/form-validation.init.js"></script>
 @endpush

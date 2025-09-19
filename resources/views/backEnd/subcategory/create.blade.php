@@ -1,12 +1,12 @@
 @extends('backEnd.layouts.master')
 @section('title','Subategory Create')
 @section('css')
-<link href="{{asset('public/backEnd')}}/assets/libs/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
-<link href="{{asset('public/backEnd')}}/assets/css/switchery.min.css" rel="stylesheet" type="text/css" />
-<link href="{{asset('public/backEnd')}}/assets/libs/summernote/summernote-lite.min.css" rel="stylesheet" type="text/css" />
+<link href="{{asset('backEnd')}}/assets/libs/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+<link href="{{asset('backEnd')}}/assets/css/switchery.min.css" rel="stylesheet" type="text/css" />
+<link href="{{asset('backEnd')}}/assets/libs/summernote/summernote-lite.min.css" rel="stylesheet" type="text/css" />
 @endsection
 @section('content')
-<div class="container-fluid">    
+<div class="container-fluid">
     <!-- start page title -->
     <div class="row">
         <div class="col-12">
@@ -17,21 +17,21 @@
                 <h4 class="page-title">Subategory Create</h4>
             </div>
         </div>
-    </div>       
-    <!-- end page title --> 
+    </div>
+    <!-- end page title -->
    <div class="row justify-content-center">
     <div class="col-lg-8">
         <div class="card">
             <div class="card-body">
                 <form action="{{route('subcategories.store')}}" method="POST" class=row data-parsley-validate=""  enctype="multipart/form-data">
-                    @csrf                 
+                    @csrf
 
                     <div class="col-sm-12">
                         <div class="form-group mb-3">
                             <label for="category_id" class="form-label">Category *</label>
                              <select class="form-control select2-multiple @error('category_id') is-invalid @enderror" id="category_id" name="category_id" value="{{ old('category_id') }}" data-toggle="select2"  data-placeholder="Choose ..."required>
                                 <optgroup >
-                                    
+
                                     <option value="">Choose..</option>
                                     @foreach($categories as $category)
                                     <option value="{{ $category->id }}">{{ $category->name }}</option>
@@ -70,7 +70,7 @@
                             @enderror
                         </div>
                     </div>
-                   
+
                     <div class="col-sm-12">
                         <div class="form-group mb-3">
                             <label for="meta_description" class="form-label">Meta Description*</label>
@@ -82,8 +82,8 @@
                             @enderror
                         </div>
                     </div>
-                   
-              
+
+
                     <!-- col end -->
                     <div class="col mb-3">
                         <div class="form-group">
@@ -100,8 +100,8 @@
                         </div>
                     </div>
                     <!-- col end -->
-                    
-                    
+
+
                     <div>
                         <input type="submit" class="btn btn-success" value="Submit">
                     </div>
@@ -117,12 +117,12 @@
 
 
 @section('script')
-<script src="{{asset('public/backEnd/')}}/assets/libs/parsleyjs/parsley.min.js"></script>
-<script src="{{asset('public/backEnd/')}}/assets/js/pages/form-validation.init.js"></script>
-<script src="{{asset('public/backEnd/')}}/assets/libs/select2/js/select2.min.js"></script>
-<script src="{{asset('public/backEnd/')}}/assets/js/pages/form-advanced.init.js"></script>
-<script src="{{asset('public/backEnd/')}}/assets/js/switchery.min.js"></script>
-<script src="{{asset('public/backEnd/')}}/assets/libs//summernote/summernote-lite.min.js"></script>
+<script src="{{asset('backEnd/')}}/assets/libs/parsleyjs/parsley.min.js"></script>
+<script src="{{asset('backEnd/')}}/assets/js/pages/form-validation.init.js"></script>
+<script src="{{asset('backEnd/')}}/assets/libs/select2/js/select2.min.js"></script>
+<script src="{{asset('backEnd/')}}/assets/js/pages/form-advanced.init.js"></script>
+<script src="{{asset('backEnd/')}}/assets/js/switchery.min.js"></script>
+<script src="{{asset('backEnd/')}}/assets/libs//summernote/summernote-lite.min.js"></script>
 <script>
     $(document).ready(function(){
         var elem = document.querySelector('.js-switch');
@@ -131,7 +131,7 @@
 </script>
 <script>
     $(".summernote").summernote({
-        placeholder: "Enter Your Text Here",    
+        placeholder: "Enter Your Text Here",
     });
 </script>
 

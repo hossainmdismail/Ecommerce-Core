@@ -1,5 +1,5 @@
-@extends('backEnd.layouts.master') 
-@section('title','Shipping Charge Edit') 
+@extends('backEnd.layouts.master')
+@section('title','Shipping Charge Edit')
 @section('content')
 <div class="container-fluid">
     <!-- start page title -->
@@ -72,10 +72,10 @@
         <!-- end col-->
     </div>
 </div>
-@endsection 
+@endsection
 @section('script')
-<script src="{{asset('public/backEnd/')}}/assets/libs/parsleyjs/parsley.min.js"></script>
-<script src="{{asset('public/backEnd/')}}/assets/js/pages/form-validation.init.js"></script>
-<script src="{{asset('public/backEnd/')}}/assets/libs/select2/js/select2.min.js"></script>
-<script src="{{asset('public/backEnd/')}}/assets/js/pages/form-advanced.init.js"></script>
+<script src="{{asset('backEnd/')}}/assets/libs/parsleyjs/parsley.min.js"></script>
+<script src="{{asset('backEnd/')}}/assets/js/pages/form-validation.init.js"></script>
+<script src="{{asset('backEnd/')}}/assets/libs/select2/js/select2.min.js"></script>
+<script src="{{asset('backEnd/')}}/assets/js/pages/form-advanced.init.js"></script>
 @endsection

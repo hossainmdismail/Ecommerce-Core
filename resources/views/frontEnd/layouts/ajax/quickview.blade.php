@@ -13,8 +13,8 @@
             </div>
             <form action="{{route('cart.store')}}" method="POST">
                 @csrf
-                <input type="hidden" name="id" value="{{$data->id}}">                
-                
+                <input type="hidden" name="id" value="{{$data->id}}">
+
                 <div class="qty-cart">
                     <div class="quantity">
                         <span class="minus">-</span>
@@ -27,16 +27,16 @@
             <a href="{{route('product',['id'=>$data->id])}}" style="display: none;" class="details-wishlist">Go To Details</a>
             <div class="col-12 mt-3 delivery_details">
                 <table class="table">
-                    <tbody>                                    
+                    <tbody>
                         <tr>
                             <td class="potro_font">
                                Category: {{ $data->category->name }}
-                            </td>                                        
+                            </td>
                         </tr>
                         <tr>
                             <td class="potro_font">
                                Brand: {{ $data->brand ? $data->brand->name : '' }}
-                            </td>                                        
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -44,7 +44,7 @@
         </div>
 	</div>
 </div>
-<script src="{{asset('public/frontEnd/js/jquery-3.6.3.min.js')}}"></script>
+<script src="{{asset('frontEnd/js/jquery-3.6.3.min.js')}}"></script>
 <script>
 	$('.close-modal').on('click',function(){
         $("#custom-modal").hide();

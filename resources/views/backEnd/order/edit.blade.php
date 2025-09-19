@@ -1,5 +1,5 @@
-@extends('backEnd.layouts.master') 
-@section('title','Order Create') 
+@extends('backEnd.layouts.master')
+@section('title','Order Create')
 @section('css')
 <style>
     .increment_btn,
@@ -8,9 +8,9 @@
         margin-bottom: 10px;
     }
 </style>
-<link href="{{asset('public/backEnd')}}/assets/libs/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
-<link href="{{asset('public/backEnd')}}/assets/libs/summernote/summernote-lite.min.css" rel="stylesheet" type="text/css" />
-@endsection 
+<link href="{{asset('backEnd')}}/assets/libs/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+<link href="{{asset('backEnd')}}/assets/libs/summernote/summernote-lite.min.css" rel="stylesheet" type="text/css" />
+@endsection
 @section('content')
 <div class="container-fluid">
     <!-- start page title -->
@@ -40,7 +40,7 @@
                                 <select id="cart_add" class="form-control select2 @error('product_id') is-invalid @enderror"  value="{{ old('product_id') }}" >
                                     <option value="">Select..</option>
                                     @foreach($products as $value)
-                                        <option value="{{$value->id}}">{{$value->name}}</option> 
+                                        <option value="{{$value->id}}">{{$value->name}}</option>
                                     @endforeach
                                 </select>
                                 @error('product_id')
@@ -192,14 +192,14 @@
         <!-- end col-->
     </div>
 </div>
-@endsection 
+@endsection
 @section('script')
-<script src="{{asset('public/backEnd/')}}/assets/libs/parsleyjs/parsley.min.js"></script>
-<script src="{{asset('public/backEnd/')}}/assets/js/pages/form-validation.init.js"></script>
-<script src="{{asset('public/backEnd/')}}/assets/libs/select2/js/select2.min.js"></script>
-<script src="{{asset('public/backEnd/')}}/assets/js/pages/form-advanced.init.js"></script>
+<script src="{{asset('backEnd/')}}/assets/libs/parsleyjs/parsley.min.js"></script>
+<script src="{{asset('backEnd/')}}/assets/js/pages/form-validation.init.js"></script>
+<script src="{{asset('backEnd/')}}/assets/libs/select2/js/select2.min.js"></script>
+<script src="{{asset('backEnd/')}}/assets/js/pages/form-advanced.init.js"></script>
 <!-- Plugins js -->
-<script src="{{asset('public/backEnd/')}}/assets/libs//summernote/summernote-lite.min.js"></script>
+<script src="{{asset('backEnd/')}}/assets/libs//summernote/summernote-lite.min.js"></script>
 <script>
     $(".summernote").summernote({
         placeholder: "Enter Your Text Here",
@@ -271,7 +271,7 @@
         var qty = $(this).val();
         if(id){
               $.ajax({
-               cache: false, 
+               cache: false,
                type:"GET",
                data:{'id':id,'qty':qty},
                url:"{{route('admin.order.cart_decrement')}}",

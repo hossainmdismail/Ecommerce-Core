@@ -1,8 +1,8 @@
-@extends('frontEnd.layouts.master') 
-@section('title',$keyword) 
+@extends('frontEnd.layouts.master')
+@section('title',$keyword)
 @push('css')
-<link rel="stylesheet" href="{{asset('public/frontEnd/css/jquery-ui.css')}}" />
-@endpush 
+<link rel="stylesheet" href="{{asset('frontEnd/css/jquery-ui.css')}}" />
+@endpush
 @section('content')
 <section class="product-section">
     <div class="container">
@@ -40,14 +40,14 @@
                                     <input type="hidden" name="max_price" value="{{request()->get('max_price')}}" />
                                 </form>
                             </div>
-                            
+
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
-        
+
         <div class="row">
             <div class="col-sm-12">
                 <div class="category-product main_product_inner">
@@ -70,7 +70,7 @@
                                 <a href="{{ route('product',$value->slug) }}">
                                     <img src="{{ asset($value->image ? $value->image->image : '') }}" alt="{{$value->name}}" />
                                 </a>
-                              
+
                             </div>
                             <div class="pro_des">
                                 <div class="pro_name">
@@ -93,7 +93,7 @@
                             <div class="cart_btn order_button">
                                 <a href="{{ route('product',$value->slug) }}" class="addcartbutton">অর্ডার</a>
                             </div>
-                            
+
                         </div>
                         @else
 
@@ -109,7 +109,7 @@
                             </form>
                         </div>
                         @endif
-                        
+
                     </div>
                     @endforeach
                 </div>
@@ -119,7 +119,7 @@
             <div class="col-sm-12">
                 <div class="custom_paginate">
                     {{$products->links('pagination::bootstrap-4')}}
-                   
+
                 </div>
             </div>
         </div>

@@ -87,7 +87,7 @@
                                     @foreach($areas as $key=>$area)
                                     <option value="{{$area->id}}" @if($profile_edit->area == $area->id) selected @endif>{{$area->area_name}}</option>
                                     @endforeach
-                                    
+
                                 </select>
                                 @error('area')
                                     <span class="invalid-feedback" role="alert">
@@ -124,9 +124,9 @@
 </section>
 @endsection
 @push('script')
-<script src="{{asset('public/frontEnd/')}}/js/parsley.min.js"></script>
-<script src="{{asset('public/frontEnd/')}}/js/form-validation.init.js"></script>
-<script src="{{asset('public/frontEnd/')}}/js/select2.min.js"></script>
+<script src="{{asset('frontEnd/')}}/js/parsley.min.js"></script>
+<script src="{{asset('frontEnd/')}}/js/form-validation.init.js"></script>
+<script src="{{asset('frontEnd/')}}/js/select2.min.js"></script>
 <script>
     $(document).ready(function() {
         $('.select2').select2();
@@ -140,19 +140,19 @@
            type:"GET",
            data:{'id':id},
            url:"{{route('districts')}}",
-           success:function(res){               
+           success:function(res){
             if(res){
                 $(".area").empty();
                 $(".area").append('<option value="">Select..</option>');
                 $.each(res,function(key,value){
                     $(".area").append('<option value="'+key+'" >'+value+'</option>');
                 });
-           
+
             }else{
                $(".area").empty();
             }
            }
-        });  
+        });
    });
 </script>
 

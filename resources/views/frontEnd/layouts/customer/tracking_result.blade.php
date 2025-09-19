@@ -22,7 +22,7 @@
                             <th>Price</th>
                         </thead>
                         <tbody>
-                            @php 
+                            @php
                                 $orderdetails = App\Models\OrderDetails::where(['order_id'=>$value->id])->get();
                             @endphp
                              @foreach($orderdetails as $key=>$product)
@@ -43,19 +43,19 @@
                             <td class="tfoot_bg"><span>Total:</span> {{$value->amount}} Tk.</td>
                             </tr>
                         </tfoot>
-                       
+
                     </table>
-                    
-                    
+
+
                 </div>
                 @endforeach
-                
+
             </div>
         </div>
     </div>
 </section>
 @endsection
 @push('script')
-<script src="{{asset('public/frontEnd/')}}/js/parsley.min.js"></script>
-<script src="{{asset('public/frontEnd/')}}/js/form-validation.init.js"></script>
+<script src="{{asset('frontEnd/')}}/js/parsley.min.js"></script>
+<script src="{{asset('frontEnd/')}}/js/form-validation.init.js"></script>
 @endpush

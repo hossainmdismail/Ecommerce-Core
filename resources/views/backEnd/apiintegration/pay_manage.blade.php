@@ -1,4 +1,4 @@
-@extends('backEnd.layouts.master') 
+@extends('backEnd.layouts.master')
 @section('title','Payment Gateway')
 @section('css')
 <style>
@@ -8,8 +8,8 @@
     margin-bottom: 10px;
   }
 </style>
-<link href="{{asset('public/backEnd')}}/assets/libs/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
-<link href="{{asset('public/backEnd')}}/assets/libs/summernote/summernote-lite.min.css" rel="stylesheet" type="text/css" />
+<link href="{{asset('backEnd')}}/assets/libs/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+<link href="{{asset('backEnd')}}/assets/libs/summernote/summernote-lite.min.css" rel="stylesheet" type="text/css" />
 @endsection @section('content')
 <div class="container-fluid">
   <!-- start page title -->
@@ -52,7 +52,7 @@
               </div>
             </div>
             <!-- col-end -->
-            
+
             <div class="col-sm-4">
               <div class="form-group mb-3">
                 <label for="app_secret" class="form-label">App Secret *</label>
@@ -157,7 +157,7 @@
               </div>
             </div>
             <!-- col-end -->
-            
+
             <div class="col-sm-4">
               <div class="form-group mb-3">
                 <label for="success_url" class="form-label">Success Url *</label>
@@ -233,15 +233,15 @@
     </div>
     <!-- end col-->
   </div>
-  
+
 </div>
 @endsection @section('script')
-<script src="{{asset('public/backEnd/')}}/assets/libs/parsleyjs/parsley.min.js"></script>
-<script src="{{asset('public/backEnd/')}}/assets/js/pages/form-validation.init.js"></script>
-<script src="{{asset('public/backEnd/')}}/assets/libs/select2/js/select2.min.js"></script>
-<script src="{{asset('public/backEnd/')}}/assets/js/pages/form-advanced.init.js"></script>
+<script src="{{asset('backEnd/')}}/assets/libs/parsleyjs/parsley.min.js"></script>
+<script src="{{asset('backEnd/')}}/assets/js/pages/form-validation.init.js"></script>
+<script src="{{asset('backEnd/')}}/assets/libs/select2/js/select2.min.js"></script>
+<script src="{{asset('backEnd/')}}/assets/js/pages/form-advanced.init.js"></script>
 <!-- Plugins js -->
-<script src="{{asset('public/backEnd/')}}/assets/libs//summernote/summernote-lite.min.js"></script>
+<script src="{{asset('backEnd/')}}/assets/libs//summernote/summernote-lite.min.js"></script>
 <script>
   $(".summernote").summernote({
     placeholder: "Enter Your Text Here",

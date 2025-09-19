@@ -65,89 +65,89 @@
         </tfoot>
        </table>
 
-<script src="{{asset('public/frontEnd/js/jquery-3.6.3.min.js')}}"></script>
+<script src="{{asset('frontEnd/js/jquery-3.6.3.min.js')}}"></script>
 <!-- cart js start -->
 <script>
     $('.cart_store').on('click',function(){
-    var id = $(this).data('id'); 
+    var id = $(this).data('id');
     var qty = $(this).parent().find('input').val();
     if(id){
         $.ajax({
            type:"GET",
            data:{'id':id,'qty':qty?qty:1},
            url:"{{route('cart.store')}}",
-           success:function(data){               
+           success:function(data){
             if(data){
                 return cart_count();
             }
            }
         });
-     }  
+     }
    });
 
     $('.cart_remove').on('click',function(){
-    var id = $(this).data('id');   
+    var id = $(this).data('id');
     if(id){
         $.ajax({
            type:"GET",
            data:{'id':id},
            url:"{{route('cart.remove')}}",
-           success:function(data){               
+           success:function(data){
             if(data){
                 $(".cartlist").html(data);
                 return cart_count();
             }
            }
         });
-     }  
+     }
    });
 
     $('.cart_increment').on('click',function(){
-    var id = $(this).data('id');  
+    var id = $(this).data('id');
     if(id){
         $.ajax({
            type:"GET",
            data:{'id':id},
            url:"{{route('cart.increment')}}",
-           success:function(data){               
+           success:function(data){
             if(data){
                 $(".cartlist").html(data);
                 return cart_count();
             }
            }
         });
-     }  
+     }
    });
 
     $('.cart_decrement').on('click',function(){
-    var id = $(this).data('id');  
+    var id = $(this).data('id');
     if(id){
         $.ajax({
            type:"GET",
            data:{'id':id},
            url:"{{route('cart.decrement')}}",
-           success:function(data){               
+           success:function(data){
             if(data){
                 $(".cartlist").html(data);
                 return cart_count();
             }
            }
         });
-     }  
+     }
    });
 
     function cart_count(){
         $.ajax({
            type:"GET",
            url:"{{route('cart.count')}}",
-           success:function(data){               
+           success:function(data){
             if(data){
                 $("#cart-qty").html(data);
             }else{
                $("#cart-qty").empty();
             }
            }
-        }); 
+        });
    };
 </script>
 <!-- cart js end -->

@@ -1,5 +1,5 @@
-@extends('backEnd.layouts.master') 
-@section('title','Shipping Charge Create') 
+@extends('backEnd.layouts.master')
+@section('title','Shipping Charge Create')
 @section('content')
 <div class="container-fluid">
     <!-- start page title -->
@@ -19,7 +19,7 @@
             <div class="card">
                 <div class="card-body">
                     <form action="{{route('shippingcharges.store')}}" method="POST" class="row" data-parsley-validate="" >
-                        @csrf                        
+                        @csrf
                         <div class="col-sm-6">
                             <div class="form-group mb-3">
                                 <label for="name" class="form-label">Area name</label>
@@ -71,10 +71,10 @@
         <!-- end col-->
     </div>
 </div>
-@endsection 
+@endsection
 @section('script')
-<script src="{{asset('public/backEnd/')}}/assets/libs/parsleyjs/parsley.min.js"></script>
-<script src="{{asset('public/backEnd/')}}/assets/js/pages/form-validation.init.js"></script>
-<script src="{{asset('public/backEnd/')}}/assets/libs/select2/js/select2.min.js"></script>
-<script src="{{asset('public/backEnd/')}}/assets/js/pages/form-advanced.init.js"></script>
+<script src="{{asset('backEnd/')}}/assets/libs/parsleyjs/parsley.min.js"></script>
+<script src="{{asset('backEnd/')}}/assets/js/pages/form-validation.init.js"></script>
+<script src="{{asset('backEnd/')}}/assets/libs/select2/js/select2.min.js"></script>
+<script src="{{asset('backEnd/')}}/assets/js/pages/form-advanced.init.js"></script>
 @endsection

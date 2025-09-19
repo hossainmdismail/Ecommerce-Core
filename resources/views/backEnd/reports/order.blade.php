@@ -2,13 +2,13 @@
 @section('title','Order Report')
 @section('content')
 @section('css')
-<link href="{{asset('public/backEnd')}}/assets/libs/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
-<link href="{{asset('public/backEnd/')}}/assets/libs/flatpickr/flatpickr.min.css" rel="stylesheet" type="text/css" />
+<link href="{{asset('backEnd')}}/assets/libs/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+<link href="{{asset('backEnd/')}}/assets/libs/flatpickr/flatpickr.min.css" rel="stylesheet" type="text/css" />
 <style>
     p{
         margin:0;
     }
-   @page { 
+   @page {
         margin: 50px 0px 0px 0px;
     }
    @media print {
@@ -26,9 +26,9 @@
     }
   }
 </style>
-@endsection 
+@endsection
 <div class="container-fluid">
-    
+
     <!-- start page title -->
     <div class="row">
         <div class="col-12">
@@ -36,14 +36,14 @@
                 <h4 class="page-title">Order Report</h4>
             </div>
         </div>
-    </div>       
-    <!-- end page title --> 
+    </div>
+    <!-- end page title -->
    <div class="row">
     <div class="col-12">
         <div class="card">
             <div class="card-body">
                 <form class="no-print">
-                    <div class="row">   
+                    <div class="row">
                         <div class="col-sm-3">
                             <div class="form-group">
                                <label for="keyword" class="form-label">Keyword</label>
@@ -74,7 +74,7 @@
                                 <input type="date" value="{{request()->get('start_date')}}"  class="form-control flatdate" name="start_date">
                             </div>
                         </div>
-                        <!--col-sm-3--> 
+                        <!--col-sm-3-->
                         <div class="col-sm-3">
                             <div class="form-group">
                                <label for="end_date" class="form-label">End Date</label>
@@ -89,7 +89,7 @@
                             </div>
                         </div>
                         <!-- col end -->
-                    </div>  
+                    </div>
                 </form>
                 <div class="row mb-3">
                     <div class="col-sm-6 no-print">
@@ -116,8 +116,8 @@
                                 <th style="width:10%">Qty</th>
                                 <th style="width:10%">Total</th>
                             </tr>
-                        </thead>               
-                    
+                        </thead>
+
                         <tbody>
                             @php
                                 $total_purchase = 0;
@@ -125,7 +125,7 @@
                                 $total_sale = 0;
                             @endphp
                             @foreach($orders as $key=>$value)
-                            
+
                             <tr>
                                 <td>{{$value->order?$value->order->invoice_id:''}}</td>
                                 <td>{{$value->shipping?$value->shipping->name:''}}</td>
@@ -169,9 +169,9 @@
 </div>
 @endsection
 @section('script')
-<script src="{{asset('public/backEnd/')}}/assets/libs/select2/js/select2.min.js"></script>
-<script src="{{asset('public/backEnd/')}}/assets/js/pages/form-advanced.init.js"></script>
-<script src="{{asset('public/backEnd/')}}/assets/libs/flatpickr/flatpickr.min.js"></script>
+<script src="{{asset('backEnd/')}}/assets/libs/select2/js/select2.min.js"></script>
+<script src="{{asset('backEnd/')}}/assets/js/pages/form-advanced.init.js"></script>
+<script src="{{asset('backEnd/')}}/assets/libs/flatpickr/flatpickr.min.js"></script>
 <script src="https://cdn.rawgit.com/rainabba/jquery-table2excel/1.1.0/dist/jquery.table2excel.min.js"></script>
 
 <script type="text/javascript">
@@ -193,7 +193,7 @@
             tempElement.html(contentToExport);
             tempElement.find('.table').table2excel({
                 exclude: ".no-export",
-                name: "Order Report" 
+                name: "Order Report"
             });
         });
     });

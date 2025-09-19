@@ -1,8 +1,8 @@
-@extends('frontEnd.layouts.master') 
-@section('title',$subcategory->meta_title) 
+@extends('frontEnd.layouts.master')
+@section('title',$subcategory->meta_title)
 @push('css')
-<link rel="stylesheet" href="{{asset('public/frontEnd/css/jquery-ui.css')}}" />
-@endpush 
+<link rel="stylesheet" href="{{asset('frontEnd/css/jquery-ui.css')}}" />
+@endpush
 @push('seo')
 <meta name="app-url" content="{{route('subcategory',$subcategory->slug)}}" />
 <meta name="robots" content="index, follow" />
@@ -25,7 +25,7 @@
 <meta property="og:image" content="{{asset($subcategory->image)}}" />
 <meta property="og:description" content="{{ $subcategory->meta_description}}" />
 <meta property="og:site_name" content="{{$subcategory->subcategoryName}}" />
-@endpush 
+@endpush
 @section('content')
 <section class="product-section">
     <div class="container">
@@ -67,14 +67,14 @@
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
-        
+
         <div class="row">
             <div class="col-sm-3 filter_sidebar">
-                
+
                 <div class="filter_close"><i class="fa fa-long-arrow-left"></i> Filter</div>
                 <form action="" class="attribute-submit">
                     <div class="sidebar_item wraper__item">
@@ -128,7 +128,7 @@
                                                                         name="max_price" id="max_price" readonly="" />
                                                                 </p>
                                                             </div>
-    
+
                                                             <div id="price-range" class="slider form-attribute"></div>
                                                         </form>
                                                     </div>
@@ -203,7 +203,7 @@
                                 <a href="{{ route('product',$value->slug) }}">
                                     <img src="{{ asset($value->image ? $value->image->image : '') }}" alt="{{$value->name}}" />
                                 </a>
-                              
+
                             </div>
                             <div class="pro_des">
                                 <div class="pro_name">
@@ -220,16 +220,16 @@
 
                          @if(! $value->prosizes->isEmpty() || ! $value->procolors->isEmpty())
                         <div class="pro_btn">
-                           
+
                             <div class="cart_btn order_button">
                                 <a href="{{ route('product',$value->slug) }}" class="addcartbutton">অর্ডার</a>
                             </div>
-                            
+
                         </div>
                         @else
 
                         <div class="pro_btn">
-                            
+
                             <form action="{{route('cart.store')}}" method="POST">
                                 @csrf
                                 <input type="hidden" name="id" value="{{$value->id}}" />
@@ -238,7 +238,7 @@
                             </form>
                         </div>
                         @endif
-                        
+
                     </div>
                     @endforeach
                 </div>
@@ -248,7 +248,7 @@
             <div class="col-sm-12">
                 <div class="custom_paginate">
                     {{$products->links('pagination::bootstrap-4')}}
-                   
+
                 </div>
             </div>
         </div>
