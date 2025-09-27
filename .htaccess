@@ -1,11 +1,10 @@
 <IfModule mod_rewrite.c>
-    # Add this line if you are still getting 403 errors and are sure about permissions
-    Options -Indexes
-
-    RewriteEngine On
-
-    # Handle Front Controller...
-    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteEngine on
     RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^ index.php [L]
+    RewriteRule ^(.*)$ public/$1 [L]
 </IfModule>
+
+<Files .env>
+    order allow,deny
+    Deny from all
+</Files>
