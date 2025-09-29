@@ -461,6 +461,7 @@
         <!-- cart js start -->
         <script>
             $(".addcartbutton").on("click", function () {
+                e.preventDefault(); // stop redirect
                 var id = $(this).data("id");
                 var qty = 1;
                 if (id) {

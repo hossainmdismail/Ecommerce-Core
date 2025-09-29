@@ -36,14 +36,14 @@ class CategoryController extends Controller
             'name' => 'required',
             'status' => 'required',
         ]);
-        // image with intervention 
+        // image with intervention
         $image = $request->file('image');
         if($image){
         $name =  time().'-'.$image->getClientOriginalName();
         $name = preg_replace('"\.(jpg|jpeg|png|webp)$"', '.webp',$name);
         $name = strtolower(preg_replace('/\s+/', '-', $name));
         $uploadpath = 'public/uploads/category/';
-        $imageUrl = $uploadpath.$name; 
+        $imageUrl = $uploadpath.$name;
         $img=Image::make($image->getRealPath());
         $img->encode('webp', 90);
         $width = "";
@@ -68,14 +68,14 @@ class CategoryController extends Controller
         Toastr::success('Success','Data insert successfully');
         return redirect()->route('categories.index');
     }
-    
+
     public function edit($id)
     {
         $edit_data = Category::find($id);
         $categories = Category::select('id','name')->get();
         return view('backEnd.category.edit',compact('edit_data','categories'));
     }
-    
+
     public function update(Request $request)
     {
         $this->validate($request, [
@@ -85,12 +85,12 @@ class CategoryController extends Controller
         $input = $request->all();
         $image = $request->file('image');
         if($image){
-            // image with intervention 
+            // image with intervention
             $name =  time().'-'.$image->getClientOriginalName();
             $name = preg_replace('"\.(jpg|jpeg|png|webp)$"', '.webp',$name);
             $name = strtolower(preg_replace('/\s+/', '-', $name));
             $uploadpath = 'public/uploads/category/';
-            $imageUrl = $uploadpath.$name; 
+            $imageUrl = $uploadpath.$name;
             $img=Image::make($image->getRealPath());
             $img->encode('webp', 90);
             $width = "";
@@ -111,13 +111,13 @@ class CategoryController extends Controller
         $input['parent_id'] = $request->parent_id?$request->parent_id:0;
         $input['front_view'] = $request->front_view ? 1 : 0;
         $input['status'] = $request->status?1:0;
-        
+
         $update_data->update($input);
 
         Toastr::success('Success','Data update successfully');
         return redirect()->route('categories.index');
     }
- 
+
     public function inactive(Request $request)
     {
         $inactive = Category::find($request->hidden_id);

@@ -2374,7 +2374,7 @@ li.recent_pro {
     text-align: center;
 }
 .checkout-shipping h6 a{
-   color: #fe5200; 
+   color: #fe5200;
 }
 .checkout-shipping select {
     font-size: 14px;
@@ -2992,8 +2992,9 @@ section.product-inner {
 .pro_img img {
     height: 100%;
     width: 100%;
-    object-fit: contain;
+    object-fit: cover;
     transition: 0.35s all;
+    border-radius: 4px;
 }
 
 .product_item_inner:hover .pro_img img {
@@ -4225,9 +4226,9 @@ td.tfoot_bg {
     z-index: 999;
 }
 .product-details-discount-badge {
-    
+
 }
-.product-details-discount-badge span.sale-badge-text p {     
+.product-details-discount-badge span.sale-badge-text p {
     font-size: 11px;
     color: #fff;
     line-height: 10px;
@@ -4243,7 +4244,7 @@ td.tfoot_bg {
     justify-content: center;
     flex-direction: column;
     color: #fff;
-    
+
 }
 .details-ratting-wrapper {
     margin-bottom: 10px;

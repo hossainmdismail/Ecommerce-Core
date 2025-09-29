@@ -17,7 +17,7 @@
                         <div class="card">
                            <div class="card-header">
                                 <h6>আপনার অর্ডারটি কনফার্ম করতে তথ্যগুলো পূরণ করে <span style="color:#fe5200;">"অর্ডার করুন"</span> বাটন এ ক্লিক করুন</h6>
-                                
+
                             </div>
                             <div class="card-body">
                                 <div class="row">
@@ -95,11 +95,11 @@
                                         <div class="radio_payment">
                                             <label id="payment_method">পেমেন্ট মেথড</label>
                                             <div class="payment_option">
-                                                
+
                                             </div>
                                         </div>
                                         <div class="payment-methods">
-                                            
+
                                             <div class="form-check p_cash">
                                                 <input class="form-check-input" type="radio" name="payment_method"
                                                 id="inlineRadio1" value="Cash On Delivery" checked required />
@@ -107,7 +107,7 @@
                                                     Cash On Delivery
                                                 </label>
                                             </div>
-                                            @if($bkash_gateway)
+                                            {{-- @if($bkash_gateway)
                                             <div class="form-check p_bkash">
                                                 <input class="form-check-input" type="radio" name="payment_method"
                                                 id="inlineRadio2" value="bkash" required/>
@@ -116,7 +116,7 @@
                                                 </label>
                                             </div>
                                             @endif
-                                            
+
                                             @if($shurjopay_gateway)
                                             <div class="form-check p_shurjo">
                                                 <input class="form-check-input" type="radio" name="payment_method"
@@ -125,7 +125,7 @@
                                                     Shurjopay
                                                </label>
                                             </div>
-                                            @endif
+                                            @endif --}}
                                         </div>
                                     </div>
 
