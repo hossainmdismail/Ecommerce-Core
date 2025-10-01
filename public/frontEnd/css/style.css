@@ -3998,6 +3998,8 @@ ul.child-category {
 .cat_img {
     height: 210px;
     margin: 0 auto;
+    overflow: hidden;
+    border-radius: 6px;
 }
 
 .cat_name {

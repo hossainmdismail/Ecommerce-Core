@@ -280,12 +280,12 @@
                                 <ul class="nav-second-level">
                                     <li>
                                         <a href="{{ route('admin.orders', ['slug' => 'all']) }}"><i
-                                                data-feather="file-plus"></i> All Order</a>
+                                                data-feather="hash"></i> All Order</a>
                                     </li>
                                     @foreach ($orderstatus as $value)
                                         <li>
                                             <a href="{{ route('admin.orders', ['slug' => $value->slug]) }}"><i
-                                                    data-feather="file-plus"></i>{{ $value->name }}</a>
+                                                    data-feather="hash"></i>{{ $value->name }}</a>
                                         </li>
                                     @endforeach
                                 </ul>
@@ -301,36 +301,36 @@
                             <div class="collapse" id="siebar-product">
                                 <ul class="nav-second-level">
                                     <li>
-                                        <a href="{{ route('products.index') }}"><i data-feather="file-plus"></i>
+                                        <a href="{{ route('products.index') }}"><i data-feather="hash"></i>
                                             Product Manage</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('categories.index') }}"><i data-feather="file-plus"></i>
+                                        <a href="{{ route('categories.index') }}"><i data-feather="hash"></i>
                                             Categories</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('subcategories.index') }}"><i data-feather="file-plus"></i>
+                                        <a href="{{ route('subcategories.index') }}"><i data-feather="hash"></i>
                                             Subcategories</a>
                                     </li>
                                     <li>
                                         <a href="{{ route('childcategories.index') }}"><i
-                                                data-feather="file-plus"></i> Childcategories</a>
+                                                data-feather="hash"></i> Childcategories</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('brands.index') }}"><i data-feather="file-plus"></i>
+                                        <a href="{{ route('brands.index') }}"><i data-feather="hash"></i>
                                             Brands</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('colors.index') }}"><i data-feather="file-plus"></i>
+                                        <a href="{{ route('colors.index') }}"><i data-feather="hash"></i>
                                             Colors</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('sizes.index') }}"><i data-feather="file-plus"></i>
+                                        <a href="{{ route('sizes.index') }}"><i data-feather="hash"></i>
                                             Sizes</a>
                                     </li>
 
                                     <li>
-                                        <a href="{{ route('products.price_edit') }}"><i data-feather="file-plus"></i>
+                                        <a href="{{ route('products.price_edit') }}"><i data-feather="hash"></i>
                                             Price Edit</a>
                                     </li>
 
@@ -351,15 +351,15 @@
                                 <div class="collapse" id="sidebar-product-review">
                                     <ul class="nav-second-level">
                                         <li>
-                                            <a href="{{ route('reviews.pending') }}"><i data-feather="file-plus"></i>
+                                            <a href="{{ route('reviews.pending') }}"><i data-feather="hash"></i>
                                                 Pending Reviews ({{ $pending_reviews }})</a>
                                         </li>
                                         <li>
-                                            <a href="{{ route('reviews.pending') }}"><i data-feather="file-plus"></i>
+                                            <a href="{{ route('reviews.pending') }}"><i data-feather="hash"></i>
                                                 Create</a>
                                         </li>
                                         <li>
-                                            <a href="{{ route('reviews.index') }}"><i data-feather="file-plus"></i> All
+                                            <a href="{{ route('reviews.index') }}"><i data-feather="hash"></i> All
                                                 Reviews</a>
                                         </li>
                                     </ul>
@@ -378,11 +378,11 @@
                                     <ul class="nav-second-level">
 
                                         <li>
-                                            <a href="{{ route('campaign.create') }}"><i data-feather="file-plus"></i>
+                                            <a href="{{ route('campaign.create') }}"><i data-feather="hash"></i>
                                                 Create</a>
                                         </li>
                                         <li>
-                                            <a href="{{ route('campaign.index') }}"><i data-feather="file-plus"></i>
+                                            <a href="{{ route('campaign.index') }}"><i data-feather="hash"></i>
                                                 Campaign</a>
                                         </li>
                                     </ul>
@@ -400,21 +400,21 @@
                             <div class="collapse" id="sidebar-users">
                                 <ul class="nav-second-level">
                                     <li>
-                                        <a href="{{ route('users.index') }}"><i data-feather="file-plus"></i>
+                                        <a href="{{ route('users.index') }}"><i data-feather="hash"></i>
                                             User</a>
                                     </li>
                                     @can('permission-list')
                                         <li>
-                                            <a href="{{ route('roles.index') }}"><i data-feather="file-plus"></i>
+                                            <a href="{{ route('roles.index') }}"><i data-feather="hash"></i>
                                                 Roles</a>
                                         </li>
                                         <li>
-                                            <a href="{{ route('permissions.index') }}"><i data-feather="file-plus"></i>
+                                            <a href="{{ route('permissions.index') }}"><i data-feather="hash"></i>
                                                 Permissions</a>
                                         </li>
                                     @endcan
                                     <li>
-                                        <a href="{{ route('customers.index') }}"><i data-feather="file-plus"></i>
+                                        <a href="{{ route('customers.index') }}"><i data-feather="hash"></i>
                                             Customers</a>
                                     </li>
                                 </ul>
@@ -430,31 +430,33 @@
                             <div class="collapse" id="siebar-sitesetting">
                                 <ul class="nav-second-level">
                                     <li>
-                                        <a href="{{ route('settings.index') }}"><i data-feather="file-plus"></i>
+                                        <a href="{{ route('settings.index') }}"><i data-feather="hash"></i>
                                             General Setting</a>
                                     </li>
+                                    @can('pixel')
+                                        <li>
+                                            <a href="{{ route('pixels.index') }}"><i data-feather="hash"></i> Pixels
+                                                Setting</a>
+                                        </li>
+                                    @endcan
                                     <li>
-                                        <a href="{{ route('pixels.index') }}"><i data-feather="file-plus"></i> Pixels
-                                            Setting</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('socialmedias.index') }}"><i data-feather="file-plus"></i>
+                                        <a href="{{ route('socialmedias.index') }}"><i data-feather="hash"></i>
                                             Social Media</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('contact.index') }}"><i data-feather="file-plus"></i>
+                                        <a href="{{ route('contact.index') }}"><i data-feather="hash"></i>
                                             Contact</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('pages.index') }}"><i data-feather="file-plus"></i> Create
+                                        <a href="{{ route('pages.index') }}"><i data-feather="hash"></i> Create
                                             Page</a>
                                     </li>
                                     <li>
                                         <a href="{{ route('shippingcharges.index') }}"><i
-                                                data-feather="file-plus"></i> Shipping Charge</a>
+                                                data-feather="hash"></i> Shipping Charge</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('orderstatus.index') }}"><i data-feather="file-plus"></i>
+                                        <a href="{{ route('orderstatus.index') }}"><i data-feather="hash"></i>
                                             Order Status</a>
                                     </li>
                                 </ul>
@@ -472,14 +474,14 @@
                                     <ul class="nav-second-level">
                                         <li>
                                             <a href="{{ route('paymentgeteway.manage') }}"><i
-                                                    data-feather="file-plus"></i> Payment Gateway</a>
+                                                    data-feather="hash"></i> Payment Gateway</a>
                                         </li>
                                         <li>
-                                            <a href="{{ route('smsgeteway.manage') }}"><i data-feather="file-plus"></i>
+                                            <a href="{{ route('smsgeteway.manage') }}"><i data-feather="hash"></i>
                                                 SMS Gateway</a>
                                         </li>
                                         <li>
-                                            <a href="{{ route('courierapi.manage') }}"><i data-feather="file-plus"></i>
+                                            <a href="{{ route('courierapi.manage') }}"><i data-feather="hash"></i>
                                                 Courier API</a>
                                         </li>
                                     </ul>
@@ -497,13 +499,13 @@
                                 <ul class="nav-second-level">
                                     @can('tag-manager')
                                         <li>
-                                            <a href="{{ route('tagmanagers.index') }}"><i data-feather="file-plus"></i>
+                                            <a href="{{ route('tagmanagers.index') }}"><i data-feather="hash"></i>
                                                 Tag Manager</a>
                                         </li>
                                     @endcan
                                     @can('pixel')
                                         <li>
-                                            <a href="{{ route('pixels.index') }}"><i data-feather="file-plus"></i> Pixel
+                                            <a href="{{ route('pixels.index') }}"><i data-feather="hash"></i> Pixel
                                                 Manage</a>
                                         </li>
                                     @endcan
@@ -521,10 +523,10 @@
                                 <ul class="nav-second-level">
                                     <li>
                                         <a href="{{ route('banner_category.index') }}"><i
-                                                data-feather="file-plus"></i> Banner Category</a>
+                                                data-feather="hash"></i> Banner Category</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('banners.index') }}"><i data-feather="file-plus"></i>
+                                        <a href="{{ route('banners.index') }}"><i data-feather="hash"></i>
                                             Banner & Ads</a>
                                     </li>
                                 </ul>
@@ -540,15 +542,15 @@
                             <div class="collapse" id="sitebar-report">
                                 <ul class="nav-second-level">
                                     <li>
-                                        <a href="{{ route('admin.stock_report') }}"><i data-feather="file-plus"></i>
+                                        <a href="{{ route('admin.stock_report') }}"><i data-feather="hash"></i>
                                             Stock Report</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('customers.ip_block') }}"><i data-feather="file-plus"></i>
+                                        <a href="{{ route('customers.ip_block') }}"><i data-feather="hash"></i>
                                             IP Block</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('admin.order_report') }}"><i data-feather="file-plus"></i>
+                                        <a href="{{ route('admin.order_report') }}"><i data-feather="hash"></i>
                                             Order Reports</a>
                                     </li>
                                 </ul>
