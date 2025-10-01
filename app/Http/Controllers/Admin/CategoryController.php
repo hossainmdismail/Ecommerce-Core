@@ -42,7 +42,7 @@ class CategoryController extends Controller
         $name =  time().'-'.$image->getClientOriginalName();
         $name = preg_replace('"\.(jpg|jpeg|png|webp)$"', '.webp',$name);
         $name = strtolower(preg_replace('/\s+/', '-', $name));
-        $uploadpath = 'public/uploads/category/';
+        $uploadPath = 'uploads/category/';
         $imageUrl = $uploadpath.$name;
         $img=Image::make($image->getRealPath());
         $img->encode('webp', 90);
@@ -89,7 +89,7 @@ class CategoryController extends Controller
             $name =  time().'-'.$image->getClientOriginalName();
             $name = preg_replace('"\.(jpg|jpeg|png|webp)$"', '.webp',$name);
             $name = strtolower(preg_replace('/\s+/', '-', $name));
-            $uploadpath = 'public/uploads/category/';
+            $uploadPath = 'uploads/category/';
             $imageUrl = $uploadpath.$name;
             $img=Image::make($image->getRealPath());
             $img->encode('webp', 90);

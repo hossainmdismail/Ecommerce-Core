@@ -57,7 +57,7 @@ class CustomerController extends Controller
     public function login(){
         return view('frontEnd.layouts.customer.login');
     }
-    
+
     public function signin(Request $request){
         $auth_check = Customer::where('phone',$request->phone)->first();
         if($auth_check){
@@ -75,11 +75,11 @@ class CustomerController extends Controller
             return redirect()->back();
         }
     }
-    
+
     public function register(){
         return view('frontEnd.layouts.customer.register');
     }
-    
+
     public function store(Request $request){
         $this->validate($request, [
             'name'    => 'required',
@@ -98,7 +98,7 @@ class CustomerController extends Controller
         $store->verify      = 1;
         $store->status      = 'active';
         $store->save();
-        
+
         Toastr::success('Success','Account Create Successfully');
         return redirect()->route('customer.login');
     }
@@ -128,7 +128,7 @@ class CustomerController extends Controller
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
             $response = curl_exec($ch);
             curl_close($ch);
-            
+
         }
         Toastr::success('Success','Resend code send successfully');
         return redirect()->back();
@@ -152,7 +152,7 @@ class CustomerController extends Controller
     public function forgot_password(){
         return view('frontEnd.layouts.customer.forgot_password');
     }
-    
+
     public function forgot_verify(Request $request){
         $customer_info = Customer::where('phone',$request->phone)->first();
         if(!$customer_info){
@@ -181,12 +181,12 @@ class CustomerController extends Controller
             $response = curl_exec($ch);
             curl_close($ch);
         }
-        
+
         session::put('verify_phone',$request->phone);
         Toastr::success('Your account register successfully');
         return redirect()->route('customer.forgot.reset');
     }
-    
+
     public function forgot_resend(Request $request){
         $customer_info = Customer::where('phone',session::get('verify_phone'))->first();
         $customer_info->forgot = rand(1111,9999);
@@ -210,7 +210,7 @@ class CustomerController extends Controller
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
             $response = curl_exec($ch);
             curl_close($ch);
-            
+
         }
 
         Toastr::success('Success','Resend code send successfully');
@@ -219,7 +219,7 @@ class CustomerController extends Controller
     public function forgot_reset(){
         if(!Session::get('verify_phone')){
           Toastr::error('Something wrong please try again');
-          return redirect()->route('customer.forgot.password'); 
+          return redirect()->route('customer.forgot.password');
         };
         return view('frontEnd.layouts.customer.forgot_reset');
     }
@@ -294,7 +294,7 @@ class CustomerController extends Controller
             $store->save();
             $customer_id = $store->id;
             }
-           
+
         }
 
          // order data save
@@ -340,9 +340,9 @@ class CustomerController extends Controller
             $order_details->qty             =   $cart->qty;
             $order_details->save();
         }
-       
+
         Cart::instance('shopping')->destroy();
-        
+
         Toastr::success('Thanks, Your order place successfully', 'Success!');
         $site_setting = GeneralSetting::where('status', 1)->first();
         $sms_gateway = SmsGateway::where(['status'=> 1, 'order'=>'1'])->first();
@@ -364,24 +364,24 @@ class CustomerController extends Controller
             $response = curl_exec($ch);
             curl_close($ch);
         }
-        
+
         if($request->payment_method=='bkash'){
             return redirect('/bkash/checkout-url/create?order_id='.$order->id);
         }elseif($request->payment_method=='shurjopay'){
-            $info = array( 
+            $info = array(
                 'currency' => "BDT",
-                'amount' => $order->amount, 
-                'order_id' => uniqid(), 
-                'discsount_amount' =>0 , 
-                'disc_percent' =>0 , 
-                'client_ip' => $request->ip(), 
-                'customer_name' =>  $request->name, 
-                'customer_phone' => $request->phone, 
-                'email' => "customer@gmail.com", 
-                'customer_address' => $request->address, 
-                'customer_city' => $request->area, 
-                'customer_state' => $request->area, 
-                'customer_postcode' => "1212", 
+                'amount' => $order->amount,
+                'order_id' => uniqid(),
+                'discsount_amount' =>0 ,
+                'disc_percent' =>0 ,
+                'client_ip' => $request->ip(),
+                'customer_name' =>  $request->name,
+                'customer_phone' => $request->phone,
+                'email' => "customer@gmail.com",
+                'customer_address' => $request->address,
+                'customer_city' => $request->area,
+                'customer_state' => $request->area,
+                'customer_postcode' => "1212",
                 'customer_country' => "BD",
                 'value1' => $order->id
             );
@@ -390,9 +390,9 @@ class CustomerController extends Controller
         }else{
             return redirect('customer/order-success/'.$order->id);
         }
-        
+
     }
-    
+
     public function orders()
     {
         $orders = Order::where('customer_id',Auth::guard('customer')->user()->id)->with('status')->latest()->get();
@@ -406,7 +406,7 @@ class CustomerController extends Controller
     {
         $order = Order::where(['id'=>$request->id,'customer_id'=>Auth::guard('customer')->user()->id])->with('orderdetails','payment','shipping','customer')->firstOrFail();
         return view('frontEnd.layouts.customer.invoice',compact('order'));
-    } 
+    }
     public function order_note(Request $request)
     {
         $order = Order::where(['id'=>$request->id,'customer_id'=>Auth::guard('customer')->user()->id])->firstOrFail();
@@ -425,12 +425,12 @@ class CustomerController extends Controller
 
         $image = $request->file('image');
         if($image){
-            // image with intervention 
+            // image with intervention
             $name =  time().'-'.$image->getClientOriginalName();
             $name = preg_replace('"\.(jpg|jpeg|png|webp)$"', '.webp',$name);
             $name = strtolower(Str::slug($name));
-            $uploadpath = 'public/uploads/customer/';
-            $imageUrl = $uploadpath.$name; 
+            $uploadPath = 'uploads/customer/';
+            $imageUrl = $uploadpath.$name;
             $img = Image::make($image->getRealPath());
             $img->encode('webp', 90);
             $width = 120;
@@ -459,33 +459,33 @@ class CustomerController extends Controller
     }
 
      public function order_track_result(Request $request){
-       
+
        $phone = $request->phone;
        $invoice_id = $request->invoice_id;
-           
+
        if($phone !=null && $invoice_id==null){
         $order = DB::table('orders')
         ->join('shippings','orders.id','=','shippings.order_id')
         ->where(['shippings.phone' => $request->phone])
         ->get();
-        
+
        }else if($invoice_id && $phone){
          $order = DB::table('orders')
         ->join('shippings','orders.id','=','shippings.order_id')
         ->where(['orders.invoice_id' => $request->invoice_id, 'shippings.phone'=>$request->phone])
         ->get();
        }
-        
+
        if($order->count() == 0){
-           
+
             Toastr::error('message', 'Something Went Wrong !');
             return redirect()->back();
        }
-       
+
     //   return $order->count();
-        
-        
-        
+
+
+
         return view('frontEnd.layouts.customer.tracking_result',compact('order'));
     }
 

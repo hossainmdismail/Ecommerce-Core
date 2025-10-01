@@ -35,11 +35,11 @@ class BannerController extends Controller
             'link' => 'required',
             'status' => 'required',
         ]);
-        
-        // image with intervention 
+
+        // image with intervention
         $file = $request->file('image');
         $name = time().$file->getClientOriginalName();
-        $uploadPath = 'public/uploads/banner/';
+        $uploadPath = 'uploads/banner/';
         $file->move($uploadPath,$name);
         $fileUrl =$uploadPath.$name;
 
@@ -50,14 +50,14 @@ class BannerController extends Controller
         Toastr::success('Success','Data insert successfully');
         return redirect()->route('banners.index');
     }
-    
+
     public function edit($id)
     {
         $edit_data = Banner::find($id);
         $categories = BannerCategory::select('id','name')->get();
         return view('backEnd.banner.edit',compact('edit_data','categories'));
     }
-    
+
     public function update(Request $request)
     {
         $this->validate($request, [
@@ -67,10 +67,10 @@ class BannerController extends Controller
         $input = $request->all();
         $image = $request->file('image');
         if($image){
-           // image with intervention 
+           // image with intervention
             $file = $request->file('image');
             $name = time().$file->getClientOriginalName();
-            $uploadPath = 'public/uploads/banner/';
+            $uploadPath = 'uploads/banner/';
             $file->move($uploadPath,$name);
             $fileUrl =$uploadPath.$name;
             $input['image'] = $fileUrl;
@@ -85,7 +85,7 @@ class BannerController extends Controller
         Toastr::success('Success','Data update successfully');
         return redirect()->route('banners.index');
     }
- 
+
     public function inactive(Request $request)
     {
         $inactive = Banner::find($request->hidden_id);

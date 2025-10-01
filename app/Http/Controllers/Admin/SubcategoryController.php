@@ -18,7 +18,7 @@ class SubcategoryController extends Controller
         ->where("service_category", $request->service_category)
         ->pluck('name', 'id');
         return response()->json($category);
-    }        
+    }
 
     function __construct()
     {
@@ -45,14 +45,14 @@ class SubcategoryController extends Controller
             'subcategoryName' => 'required',
             'status' => 'required',
         ]);
-        // image with intervention 
+        // image with intervention
         $image = $request->file('image');
         if($image !=NULL){
             $name =  time().'-'.$image->getClientOriginalName();
             $name = preg_replace('"\.(jpg|jpeg|png|webp)$"', '.webp',$name);
             $name = strtolower(preg_replace('/\s+/', '-', $name));
-            $uploadpath = 'public/uploads/subcategory/';
-            $imageUrl = $uploadpath.$name; 
+            $uploadPath = 'uploads/subcategory/';
+            $imageUrl = $uploadpath.$name;
             $img=Image::make($image->getRealPath());
             $img->encode('webp', 90);
             $width = "";
@@ -65,8 +65,8 @@ class SubcategoryController extends Controller
         }else{
             $imageUrl = NULL;
         }
-        
-      
+
+
         $input = $request->all();
 
         $input['slug'] = strtolower(preg_replace('/\s+/', '-', $request->subcategoryName));
@@ -77,14 +77,14 @@ class SubcategoryController extends Controller
         Toastr::success('Success','Data insert successfully');
         return redirect()->route('subcategories.index');
     }
-    
+
     public function edit($id)
     {
         $edit_data = Subcategory::find($id);
         $categories = Category::select('id','name')->get();
         return view('backEnd.subcategory.edit',compact('edit_data','categories'));
     }
-    
+
     public function update(Request $request)
     {
         $this->validate($request, [
@@ -95,14 +95,14 @@ class SubcategoryController extends Controller
         $update_data = Subcategory::find($request->id);
         $input = $request->all();
         $image = $request->file('image');
-        
+
         if($image){
-            // image with intervention 
+            // image with intervention
             $name =  time().'-'.$image->getClientOriginalName();
             $name = preg_replace('"\.(jpg|jpeg|png|webp)$"', '.webp',$name);
             $name = strtolower(preg_replace('/\s+/', '-', $name));
-            $uploadpath = 'public/uploads/subcategory/';
-            $imageUrl = $uploadpath.$name; 
+            $uploadPath = 'uploads/subcategory/';
+            $imageUrl = $uploadpath.$name;
             $img=Image::make($image->getRealPath());
             $img->encode('webp', 90);
             $width = "";
@@ -119,17 +119,17 @@ class SubcategoryController extends Controller
         }
 
 
-        
+
         $input['slug'] = strtolower(preg_replace('/\s+/', '-', $request->subcategoryName));
         $input['slug'] = str_replace('/', '', $input['slug']);
         $input['status'] = $request->status?1:0;
-        
+
         $update_data->update($input);
 
         Toastr::success('Success','Data update successfully');
         return redirect()->route('subcategories.index');
     }
- 
+
     public function inactive(Request $request)
     {
         $inactive = Subcategory::find($request->hidden_id);

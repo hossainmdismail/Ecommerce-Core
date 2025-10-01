@@ -10,7 +10,7 @@ use File;
 use Toastr;
 class BrandController extends Controller
 {
-    
+
     public function index(Request $request)
     {
         $data = Brand::orderBy('id','DESC')->get();
@@ -26,14 +26,14 @@ class BrandController extends Controller
             'name' => 'required',
             'status' => 'required',
         ]);
-        // image with intervention 
+        // image with intervention
         $image = $request->file('image');
         if($image){
             $name =  time().'-'.$image->getClientOriginalName();
             $name = preg_replace('"\.(jpg|jpeg|png|webp)$"', '.webp',$name);
             $name = strtolower(preg_replace('/\s+/', '-', $name));
-            $uploadpath = 'public/uploads/brand/';
-            $imageUrl = $uploadpath.$name; 
+            $uploadPath = 'uploads/brand/';
+            $imageUrl = $uploadpath.$name;
             $img=Image::make($image->getRealPath());
             $img->encode('webp', 90);
             $width = 210;
@@ -42,11 +42,11 @@ class BrandController extends Controller
             $img->resize($width, $height, function ($constraint) {
                 $constraint->aspectRatio();
             });
-            $img->save($imageUrl); 
+            $img->save($imageUrl);
         }else{
             $imageUrl = NULL;
         }
-       
+
 
         $input = $request->all();
         $input['slug'] = strtolower(preg_replace('/\s+/u', '-', trim($request->name)));
@@ -55,13 +55,13 @@ class BrandController extends Controller
         Toastr::success('Success','Data insert successfully');
         return redirect()->route('brands.index');
     }
-    
+
     public function edit($id)
     {
         $edit_data = Brand::find($id);
         return view('backEnd.brand.edit',compact('edit_data'));
     }
-    
+
     public function update(Request $request)
     {
         $this->validate($request, [
@@ -71,12 +71,12 @@ class BrandController extends Controller
         $input = $request->all();
         $image = $request->file('image');
         if($image){
-            // image with intervention 
+            // image with intervention
             $name =  time().'-'.$image->getClientOriginalName();
             $name = preg_replace('"\.(jpg|jpeg|png|webp)$"', '.webp',$name);
             $name = strtolower(preg_replace('/\s+/', '-', $name));
-            $uploadpath = 'public/uploads/brand/';
-            $imageUrl = $uploadpath.$name; 
+            $uploadPath = 'uploads/brand/';
+            $imageUrl = $uploadpath.$name;
             $img=Image::make($image->getRealPath());
             $img->encode('webp', 90);
             $width = 210;
@@ -97,7 +97,7 @@ class BrandController extends Controller
         Toastr::success('Success','Data update successfully');
         return redirect()->route('brands.index');
     }
- 
+
     public function inactive(Request $request)
     {
         $inactive = Brand::find($request->hidden_id);
