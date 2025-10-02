@@ -33,6 +33,7 @@ use App\Http\Controllers\Admin\ShippingChargeController;
 use App\Http\Controllers\Admin\ColorController;
 use App\Http\Controllers\Admin\SizeController;
 use App\Http\Controllers\Admin\TagManagerController;
+use App\Http\Controllers\Auth\LoginController;
 
 Auth::routes();
 
@@ -449,3 +450,17 @@ Route::group(['namespace'=>'Admin','middleware' => ['auth','lock','check_refer']
     Route::post('customer/ip-destroy', [CustomerManageController::class,'ipblock_destroy'])->name('customers.ipblock.destroy');
 
 });
+
+// ------------------------------
+// Block default /register and /login
+// ------------------------------
+Route::any('/register', fn() => abort(404));
+// Route::any('/login', fn() => abort(404));
+
+// ------------------------------
+// Admin login routes (guest only)
+// ------------------------------
+// Route::middleware('guest:web')->group(function () {
+//     Route::get('/deepanel/login', [LoginController::class, 'showLoginForm'])->name('admin.login');
+//     Route::post('/deepanel/login', [LoginController::class, 'login']);
+// });
